@@ -11,17 +11,24 @@ intents.message_content = True
 intents.members = True
 intents.presences = True
 
-bot = commands.Bot(command_prefix="!h", intents=intents)
+bot = commands.Bot(command_prefix="!h ", intents=intents)
 
 
 @bot.event
 async def on_ready():
-    await bot.load_extension("src.cogs.CheckGame")  # loads CheckGame cog
+    # load cogs when the bot is ready
+    await bot.load_extension("src.actions.check_game")
+    await bot.load_extension("src.actions.greetings")
 
 
 @bot.command()
 async def hello(ctx):
     await ctx.send("I am Hepz-Bot, the android sent by CyberLife")
+
+
+@bot.command()
+async def bye(ctx):
+    await ctx.send("Bye! I am Hepz-Bot, the android sent by CyberLife")
 
 
 def bot_init():
