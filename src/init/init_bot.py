@@ -20,8 +20,6 @@ async def on_ready():
     await bot.load_extension("src.actions.check_game")
     await bot.load_extension("src.actions.greetings")
 
-    print("Bot is ready")
-
 
 @bot.command()
 async def hello(ctx):
@@ -33,6 +31,7 @@ async def bye(ctx):
 
 def bot_init():
     if token is not None:
+        print("Bot is ready")
         bot.run(token, log_handler=handler, log_level=logging.DEBUG)
     else:
         exit(1)
