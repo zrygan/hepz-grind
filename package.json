@@ -1,0 +1,6 @@
+{
+  "name": "hepz-grind", 
+  "version": "0.1",
+  "description": "Hep grinding tracker",
+  "main": "main.js"
+}
