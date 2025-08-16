@@ -10,13 +10,15 @@ intents = discord.Intents.default()
 intents.message_content = True
 intents.members = True
 
-bot = commands.Bot(command_prefix='#', intents=intents)
+bot = commands.Bot(command_prefix='!h', intents=intents)
 
 @bot.event
 async def on_ready():
-    print(f'I am Hepz-Bot, the android sent by CyberLife')
-
     await bot.load_extension('src.cogs.CheckGame') # loads CheckGame cog
+
+@bot.command()
+async def hello(ctx):
+    await ctx.send("I am Hepz-Bot, the android sent by CyberLife")
 
 def bot_init():
     if token is not None:
