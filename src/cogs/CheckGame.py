@@ -6,7 +6,7 @@ class CheckGame(commands.Cog):
         self.bot = bot
 
     @commands.Cog.listener()
-    async def on_member_update(self, before, after):
+    async def on_presence_update(self, before, after):
 
         if before.activities != after.activities: # check if user changed activity
 
@@ -17,9 +17,11 @@ class CheckGame(commands.Cog):
                     role = discord.utils.get(after.guild.roles, name=hep_role) # get hep role
 
                     if role in after.roles: # if user has hep role
+                        print("user has hep role")
                         channel = discord.utils.get(after.guild.channels, name="hepz-valorant-grind") # get the grinding channel
 
                         if channel:
+                            print("sending msg to hepz-valorant-grind")
                             await channel.send(f"{after.mention} is about to grind on {activity.name}")
 
 async def setup(bot):
