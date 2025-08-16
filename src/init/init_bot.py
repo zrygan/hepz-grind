@@ -20,15 +20,6 @@ async def on_ready():
     await bot.load_extension("src.actions.check_game")
     await bot.load_extension("src.actions.greetings")
 
-
-@bot.command()
-async def hello(ctx):
-    await ctx.send("I am Hepz-Bot, the android sent by CyberLife")
-
-@bot.command()
-async def bye(ctx):
-    await ctx.send("Bye! I am Hepz-Bot, the android sent by CyberLife")
-
 def bot_init():
     if token is not None:
         print("Bot is ready")
