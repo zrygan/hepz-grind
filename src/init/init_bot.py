@@ -1,7 +1,6 @@
-import discord
+import discord, logging, os
+
 from discord.ext import commands
-import logging
-import os
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -16,6 +15,8 @@ bot = commands.Bot(command_prefix='#', intents=intents)
 @bot.event
 async def on_ready():
     print(f'I am Hepz-Bot, the android sent by CyberLife')
+
+    await bot.load_extension('src.cogs.CheckGame') # loads CheckGame cog
 
 def bot_init():
     if token is not None:
