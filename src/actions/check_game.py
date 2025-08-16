@@ -33,7 +33,7 @@ class CheckGame(commands.Cog):
                 name = getattr(activity, "name", None)
 
                 # the key of the activity in the hashmap (it should exist in it)
-                key = (after.id, name, getattr(activity, "type", None))
+                key = (name, getattr(activity, "type", None))
                 time = tracker.get(key)
 
                 # handle printing the time
@@ -72,9 +72,9 @@ class CheckGame(commands.Cog):
             # name of activity
             name = getattr(activity, "name", None)
 
-            # get user id, name, and activity type as a 3-tuple
+            # get name and activity type as a 2-tuple
             # this is the key to the hashmap (`tracker`)
-            key = (after.id, name, getattr(activity, "type", None))
+            key = (name, getattr(activity, "type", None))
 
             # get channel
             channel = discord.utils.get(
